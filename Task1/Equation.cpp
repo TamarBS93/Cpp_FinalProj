@@ -33,13 +33,15 @@ void Equation::update_solutions() {
 }
 
 Equation::Equation()
-    : a{1}, b{}, c{}, solutions{nullptr}, solutions_size{0} 
+    : a{1}, b{}, c{}, solutions{nullptr}, solutions_size{0},
+        get_solutions{nullptr, 0}
+
 {
     update_solutions();
 }
 
 Equation::Equation(double a, double b, double c) 
-    : a{a}, b{b}, c{c} 
+    : a{a}, b{b}, c{c}, get_solutions{nullptr, 0}
 {
     if (a == 0) {
         throw std::invalid_argument("Coefficient a cannot be zero for a quadratic equation.");
@@ -49,7 +51,8 @@ Equation::Equation(double a, double b, double c)
 
 //rule of three:
 Equation::Equation(const Equation& other) 
-    : a{other.a}, b{other.b}, c{other.c}, solutions{nullptr}, solutions_size{other.solutions_size}
+    : a{other.a}, b{other.b}, c{other.c}, solutions{nullptr}, solutions_size{other.solutions_size},
+        get_solutions{nullptr, 0}
 {
     if (solutions_size > 0) {
         solutions = new double[solutions_size];

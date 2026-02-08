@@ -99,7 +99,14 @@ public:
     struct SolutionsAccessor {  
         const double* ptr{nullptr};
         std::size_t size{0};
-
+        
+        /**
+        @brief Constructor for SolutionsAccessor.
+        @param p Pointer to the solutions array.
+        @param s Size of the solutions array.
+        */
+        SolutionsAccessor(const double* p = nullptr, std::size_t s = 0)
+            : ptr(p), size(s) {}
         /**
          * @brief Returns the raw solutions array.
          * @return Pointer to the solutions array.
@@ -156,6 +163,5 @@ public:
  * @return New Equation with modified c.
  */
 Equation operator+(double additional_constant, const Equation& eq);
-
 
 #endif // EQUATION_TBS_HPP
