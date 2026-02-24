@@ -6,7 +6,7 @@ Dog::Dog(std::string name, double temp, double breath, double heart, bool is_lar
 
 bool Dog::check_health() const {
 
-    if(temp < 38.5 || temp > 39.2) return false;
+    if(temp < 38 || temp > 39.2) return false;
     if(breath < 10 || breath > 35) return false;
     if(is_large){
         if(heart < 60 || heart > 100) return false;

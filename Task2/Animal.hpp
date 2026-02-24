@@ -5,15 +5,17 @@
 
 class Animal {
     std::string name;
-public:
+protected:
     double temp, breath, heart;
 
+public:
     Animal(std::string name, double temp, double breath, double heart);
     virtual ~Animal() = default;
 
     //rule of three:
     Animal(const Animal& other);
     Animal& operator=(const Animal& other);
+
     virtual bool check_health() const = 0;
     std::string get_name() const;
 };

@@ -17,7 +17,7 @@ class Vet {
 
 public:
     static Vet& get_instance();
-    void add_animal(Animal * &&animal_ptr);
+    void add_animal(Animal * &&);
     void show_sick() const;
     void show_sick_dogs() const;
 };
